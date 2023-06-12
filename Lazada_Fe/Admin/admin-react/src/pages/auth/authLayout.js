@@ -1,16 +1,17 @@
-// import {useCookies} from "react-cookie";
+import {useCookies} from "react-cookie";
 import {Outlet, useNavigate} from "react-router-dom";
-// import {useEffect} from "react";
-
+import {useEffect} from "react";
+import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 export default function AuthLayout() {
-    // let navigate = useNavigate();
-    // const [cookies] = useCookies();
+    let navigate = useNavigate();
+    const [cookies] = useCookies();
 
-    // useEffect(() => {
-    //     if (cookies.user_token) {
-    //         navigate('/');
-    //     }
-    // }, []);
+    useEffect(() => {
+        if (cookies.user_token) {
+            navigate('/');
+        }
+    }, []);
 
     return (
         <>
@@ -21,6 +22,19 @@ export default function AuthLayout() {
                             <img src="/images/AdminLTELogo.png" alt="AdminLTE Logo" className="brand-image image-circle elevation-3"/>
                         </div>
                         <Outlet />
+                        <ToastContainer
+                        position="top-right"
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={true}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="light"
+                        style={{ width: "400px" }}
+                    />
                     </div>
                 </div>
             </div>

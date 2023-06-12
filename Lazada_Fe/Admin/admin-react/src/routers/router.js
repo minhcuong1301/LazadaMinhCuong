@@ -6,6 +6,8 @@ import UserCreate from "../pages/users/create";
 import UserEdit from "../pages/users/edit";
 import AuthLayout from "../pages/auth/authLayout";
 import Login from "../pages/auth/login";
+import ProfileIndex from "../pages/profile";
+import ChangePassword from "../pages/auth/changePassword";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -31,6 +33,15 @@ const router = createBrowserRouter([
                         element: <UserEdit />,
                     },
                 ]
+            },
+            {
+                path: "profile",
+                children: [
+                    {
+                        index: true,
+                        element: <ProfileIndex />
+                    }
+                ]
             }
         ]
     },
@@ -42,6 +53,10 @@ const router = createBrowserRouter([
                 path: "/login",
                 element: <Login />,
             },
+            {
+                path: "/confirm-account",
+                element: <ChangePassword />,
+            }
         ]
     }
    

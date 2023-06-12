@@ -1,8 +1,19 @@
 import { faBars, faExpandArrowsAlt } from "@fortawesome/free-solid-svg-icons";
 import { faComments, faBell, faStar } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useCookies } from "react-cookie";
 const Navigation = () => {
-    
+    const collapseSidebar=(e)=>{
+        e.preventDefault();
+        document.getElementById('main').classList.toggle("sidebar-collapse");
+    }
+    const [cookies, setCookie, removeCookie] = useCookies([]);
+
+    const logout = (e) => {
+        e.preventDefault();
+        removeCookie('user_token');
+        window.location.href = process.env.REACT_APP_APP_DOMAIN + 'login';
+    }
 
     return (
         <>
@@ -10,7 +21,7 @@ const Navigation = () => {
                 <div className="container-fluid p-0">
                     <ul className="navbar-nav mb-2 mb-lg-0 mx-3">
                         <li className="nav-item">
-                            <a href="http://localhost:3000/" className="nav-link" ><FontAwesomeIcon icon={faBars} /></a>
+                            <a href="http://localhost:3000/" className="nav-link" onClick={collapseSidebar}><FontAwesomeIcon icon={faBars} /></a>
                         </li>
                     </ul>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -122,7 +133,7 @@ const Navigation = () => {
                             </a>
                         </li>
                         <li className={"nav-item max-3"}>
-                            <a className="nav-link active text-primary" href="#" >
+                            <a className="nav-link active text-primary" href="#" onClick={(e) => logout(e)}>
                                 Đăng xuất
                             </a>
                         </li>
