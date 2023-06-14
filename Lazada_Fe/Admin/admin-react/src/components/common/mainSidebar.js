@@ -3,8 +3,34 @@ import { NavLink } from 'react-router-dom';
 import { faAngleLeft, faUsers } from "@fortawesome/free-solid-svg-icons";
 import { faCircle } from "@fortawesome/free-regular-svg-icons";
 import { useEffect } from 'react';
+import { useState } from 'react';
+import profileApis from '../../api/baseAdmin/profile';
+import { generateFileToUrl } from '../../helpers/common';
 export default function MainSidebar() {
+    const [av, setAv] = useState({});
     useEffect(()=>{
+        (async () => {
+            const profileResponse = await profileApis.show();
+            
+            if (profileResponse.success) {
+                const avatar = JSON.parse(profileResponse.data.avatar);
+              
+                    
+                setAv(
+                    {
+                        ...profileResponse.data,
+                        avatar:generateFileToUrl(avatar.value.data)
+                    }
+                );
+         
+            
+            }
+        }   
+        )()
+    },[])
+    console.log(av);
+    useEffect(()=>{
+        
         document.querySelectorAll(".main-sidebar .nav-sidebar >.nav-item").forEach((e)=>{
             e.querySelector('.nav-link').addEventListener('click', function (item) {
                 if (e.classList.contains('menu-is-opening') && e.classList.contains('menu-open')) {
@@ -16,7 +42,9 @@ export default function MainSidebar() {
                 }
             })
         })
-        // const [auth, setAuth] = useState([]);
+        
+        
+     
     })
     return (
         <>
@@ -30,7 +58,7 @@ export default function MainSidebar() {
                         {/* Sidebar User Panel */}
                         <div className="user-panel mt-3 pb-3 mb-3 d-flex">
                             <div className="image">
-                                <img src="/images/AdminLTELogo.png" className="img-circle elevation-2" alt="User" />
+                                <img src={av.avatar}className="img-circle elevation-2" alt="User" />
                             </div>
                             <div className="info">
                                 <NavLink
@@ -38,7 +66,7 @@ export default function MainSidebar() {
                                     className={"nav-link"}
                                     end
                                 >
-                                    Cuong
+                                    {av.name}
                                 </NavLink>
                             </div>
                         </div>

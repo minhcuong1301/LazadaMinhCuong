@@ -6,6 +6,7 @@ import {toast} from "react-toastify";
 // import {useDispatch, useSelector} from "react-redux";
 import profileApis from "../../api/baseAdmin/profile";
 // import { updateAuthUser } from "../../features/auth/authSlice";
+import { generateFileToUrl } from "../../helpers/common";
 
 
 export default function ProfileIndex()
@@ -41,26 +42,45 @@ export default function ProfileIndex()
     //         setValue('name', auth.user?.name)
     //     }
     // }, [auth.user])
-    (async () => {
-                const profileResponse = await profileApis.show();
-                if (profileResponse.success) {
-                    setProfile(profileResponse.data);
-                    setValue('name', profileResponse.data.name)
-                    // setValue('email', profileResponse.data.email)
-                    // setValue('phone', profileResponse.data.phone)
-                    // setValue('level', profileResponse.data.level.toString())
+    // let avatar = user.avatar;
+        (async () => {
+            const profileResponse = await profileApis.show();
+            
+            if (profileResponse.success) {
+                let avatar = profileResponse.data.avatar;
+                try { 
+                    avatar = generateFileToUrl(JSON.parse(avatar).value.data);
+                } catch(e) {
+                    avatar = profileResponse.data.avatar;
                 }
-                }   
-    )()
+                    
+                setProfile(
+                    {
+                        ...profileResponse.data,
+                        avatar
+                    }
+                );
+                setValue('name', profileResponse.data.name)
+            
+            }
+        }   
+        )()
 
     }, [])
-   console.log(profile);
+    // let avatar = profile.avatar;
+    
+    // avatar = JSON.parse(profile.avatar)
+    // console.log(avatar);
+    // if (typeof avatar === 'object') {
+    //     avatar = generateFileToUrl(avatar.value.data)
+    // }
     const update = async (data) => {
         const formData = new FormData();
         formData.append('name', data.name);
 
         if (data.avatar) {
             formData.append('avatar', data.avatar[0]);
+           
         }
         // try {
         //     const updateProfileResponse = await profileApis.update(formData);
@@ -109,8 +129,8 @@ export default function ProfileIndex()
                            
                                     <div className={'p-3 col-6'}>
                                         <div className="mb-3">
-                                            {/* <img src={auth.user?.avatarUrl} className={"mb-2 avatar"} alt={"avatar user"}/> */}
-                                            <img src=""className={"mb-2 avatar"} alt={"avatar user"}/>
+                                            <img src={profile?.avatar} className={"mb-2 avatar"} alt={"avatar user"}/>
+                                            {/* <img src=""className={"mb-2 avatar"} alt={"avatar user"}/> */}
                                             <input
                                                 type="file"
                                                 className="form-control"
