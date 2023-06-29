@@ -3,16 +3,17 @@ import ContentHeader from "../../components/common/contentHeader";
 import {USER} from "../../helpers/constants";
 import {useForm} from "react-hook-form";
 import {toast} from "react-toastify";
-// import {useDispatch, useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import profileApis from "../../api/baseAdmin/profile";
-// import { updateAuthUser } from "../../features/auth/authSlice";
+import { updateAuthUser } from "../../features/auth/authSlice";
+
 import { generateFileToUrl } from "../../helpers/common";
 
 
 export default function ProfileIndex()
 {
-    // const auth = useSelector(state => state.auth);
-    // const dispatch = useDispatch();
+    const auth = useSelector(state => state.auth);
+    const dispatch = useDispatch();
     const {
         register,
         handleSubmit,
@@ -38,80 +39,38 @@ export default function ProfileIndex()
     const [title] = useState('Profile');
     const[profile,setProfile]=useState({});
     useEffect(() => {
-    //     if (auth.user) {
-    //         setValue('name', auth.user?.name)
-    //     }
-    // }, [auth.user])
-    // let avatar = user.avatar;
-        (async () => {
-            const profileResponse = await profileApis.show();
-            
-            if (profileResponse.success) {
-                let avatar = profileResponse.data.avatar;
-                try { 
-                    avatar = generateFileToUrl(JSON.parse(avatar).value.data);
-                } catch(e) {
-                    avatar = profileResponse.data.avatar;
-                }
-                    
-                setProfile(
-                    {
-                        ...profileResponse.data,
-                        avatar
-                    }
-                );
-                setValue('name', profileResponse.data.name)
-            
-            }
-        }   
-        )()
-
-    }, [])
-    // let avatar = profile.avatar;
+        if (auth.user) {
+            setValue('name', auth.user?.name)
+        }
+    }, [auth.user]) 
     
-    // avatar = JSON.parse(profile.avatar)
-    // console.log(avatar);
-    // if (typeof avatar === 'object') {
-    //     avatar = generateFileToUrl(avatar.value.data)
-    // }
+    
+   
     const update = async (data) => {
         const formData = new FormData();
         formData.append('name', data.name);
 
         if (data.avatar) {
             formData.append('avatar', data.avatar[0]);
-           
         }
-        // try {
-        //     const updateProfileResponse = await profileApis.update(formData);
+        try {
+            const updateProfileResponse = await profileApis.update(formData);
 
-        //     if (updateProfileResponse.success) {
-        //         const profileResponse = await profileApis.show();
+            if (updateProfileResponse.success) {
+                const profileResponse = await profileApis.show();
 
-        //         if (profileResponse.success) {
-        //             dispatch(updateAuthUser(profileResponse.data));
-        //             toast.success(() => <p>Update profile thành công!</p>);
+                if (profileResponse.success) {
+                    dispatch(updateAuthUser(profileResponse.data));
+                    toast.success(() => <p>Update profile thành công!</p>);
 
-        //             return;
-        //         }
-        //         throw new Error();
-        //     }
-        //     throw new Error();
-        // } catch (e) {
-        //     toast.error(() => <p>Update profile thất bại</p>);
-        // }
-        const updateProfileResponse = await profileApis.update(formData);
-        if (updateProfileResponse.success) {
-            const profileResponse = await profileApis.show();
-            toast.success(() => <p>Chỉnh sửa profile <b>{data.name}</b> thành công!</p>);
-           
-            return;
+                    return;
+                }
+                throw new Error();
+            }
+            throw new Error();
+        } catch (e) {
+            toast.error(() => <p>Update profile thất bại</p>);
         }
-
-        if (!updateProfileResponse.errors.length) {
-            toast.error(() => <p>Chỉnh sửa profile <b>{data.name}</b> thất bại!</p>);
-        }
-     
     };
 
     return (
@@ -129,8 +88,8 @@ export default function ProfileIndex()
                            
                                     <div className={'p-3 col-6'}>
                                         <div className="mb-3">
-                                            <img src={profile?.avatar} className={"mb-2 avatar"} alt={"avatar user"}/>
-                                            {/* <img src=""className={"mb-2 avatar"} alt={"avatar user"}/> */}
+                                            <img src={auth.user?.avatarUrl} className={"mb-2 avatar"} alt={"avatar user"}/>
+                                           
                                             <input
                                                 type="file"
                                                 className="form-control"
@@ -165,7 +124,7 @@ export default function ProfileIndex()
                                                 disabled={true}
                                                 type="email"
                                                 className="form-control"
-                                                value={ profile?.email }
+                                                value={ auth.user?.email || ''}
                                             />
                                         </div>
                                         <div className="mb-3">
@@ -174,7 +133,7 @@ export default function ProfileIndex()
                                                 disabled={true}
                                                 type="text"
                                                 className="form-control"
-                                                value={ profile?.phone }
+                                                value={ auth.user?.phone  || ''}
                                             />
                                         </div>
                                         <div className={'mb-3'}>
@@ -186,7 +145,7 @@ export default function ProfileIndex()
                                                     className="form-check-input"
                                                     type="radio"
                                                     id="inputLevelAdmin"
-                                                    checked={ profile?.level === USER.levels.admin.value}
+                                                    checked={ auth.user?.level === USER.levels.admin.value}
                                                     disabled={true}
                                                 />
                                                 <label className="form-check-label" htmlFor="inputLevelAdmin">
@@ -198,7 +157,7 @@ export default function ProfileIndex()
                                                     className="form-check-input"
                                                     type="radio"
                                                     id="inputLevelUser"
-                                                    checked={ profile?.level === USER.levels.user.value}
+                                                    checked={ auth.user?.level === USER.levels.user.value}
                                                     disabled={true}
                                                 />
                                                 <label className="form-check-label" htmlFor="inputLevelUser">

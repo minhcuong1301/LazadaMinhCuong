@@ -19,8 +19,6 @@ export default function UserEdit() {
     return (
         <>
             <ContentHeader breadcrumb={breadcrumb} title={parentTitle}/>
-            
-
             <section className={'content'}>
                 <div className={'container-fluid'}>
                     <div className={'row'}>

@@ -1,0 +1,155 @@
+.contentlogin{
+    width: 100%;
+    height: auto;
+    background-color: #eff0f5;
+    padding-bottom: 20px;
+    .header_log{
+        display: flex;
+        width: 809px;
+        justify-content: space-between;
+        margin-left: 27%;
+        padding-top: 52px;
+        padding-bottom: 20px;
+        h3{
+            font-size: 20px;
+            color: #424242;
+            font-weight: 400;
+
+        }
+        p{
+            color: #757575;
+            line-height: 26px;
+            font-size: 12px;
+            // font-weight: 450;
+            a{
+                color: #1a9cb7;
+                text-decoration: none;
+            }
+        }
+    }
+    .section-login{
+        background-color: #fff;
+        width: 812px;
+        height: auto;
+        padding: 25px 50px 50px 25px;
+        margin-left: 27%;
+        
+        display: flex;
+        gap: 40px;
+        // justify-content: space-between;
+
+        .section1-login{    
+         width: 368px;
+            .color-text{
+                font-size: 14px; 
+            }
+            span{
+                font-size: 12px;}
+            input::placeholder{
+                font-size: 15px;
+            }
+            #errPhone,
+            #errPassWord{
+               color: red;
+             
+            }
+            .da-son-login{
+                position: relative;
+                #showPass{
+                    display: none;
+                    position: absolute;
+                    top: 10px;
+                     right: 30px;
+                    
+                }
+                #hidePass{
+                    position: absolute;
+                    top: 10px;
+                     right: 30px;
+                    //  display: none;
+                }
+                i:hover{
+                    cursor: pointer;
+                }
+    
+            }
+            .forgotpass{
+                display: flex;
+                justify-content: end;
+                span{
+                    line-height: 26px;
+                    font-size: 12px;
+                    a{
+                        color: #1a9cb7;
+                        text-decoration: none;
+                    }
+                }
+                
+            }
+            
+            
+            
+           
+        }
+        .section2-login{
+            width: 308px;
+            
+            .btn-sign-login{
+                // border-style: solid;
+                background-color: #f57224;
+                height: 48px;
+                padding: 0 36px;
+                font-size: 14px;
+                line-height: 46px;
+                // border-width: 1px;
+                border: none;
+                margin: 12px 0;
+                color: white;
+                width: 308px;
+                border-radius: 2px;
+            }
+            .btn-sign-login:hover{
+                cursor: pointer;
+                transition: .3s ease-out;
+                background-color: #de631c;
+            }
+            .text-policy-login{
+                font-size: 12px;
+                color: #757575;
+                margin-bottom: 20px;
+                // font-weight: 400px;
+                span{
+                    a{
+                        color: #049cb9;
+                        text-decoration: none;
+                    }
+                }
+            }
+            
+            .fa-go-login{
+                margin-top: 17px;
+                .fa-login{
+                    background: #3b5998;
+                    width:308px;
+                    margin-bottom: 20px;
+                    padding-left:8px;
+                    padding-right: 8px;
+                    height: 40px;
+                    line-height: 40px;
+                    border-radius: 3px;
+                    border: none;
+                    span{
+                        // text-align: center;
+
+                        margin-left: 15px;
+                        color: #fff;
+                        font-size: 20px;
+                    }
+                }
+                .fa-back-login{
+                    background-color: #d34836;
+                }
+            }
+        }
+    }
+}

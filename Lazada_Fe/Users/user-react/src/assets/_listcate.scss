@@ -1,0 +1,55 @@
+.category{
+    h3{
+        font-size: 22px;
+        font-weight: 400;
+        margin-bottom: 10px;
+        margin-left:15% ;
+        margin-top: 4rem;
+    }
+    .cate{
+        display: flex;          
+        flex-wrap: wrap;
+        width: 1195px;
+        margin-left: 15%;
+        gap: 1px;
+        height: 298px;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        .cate1{
+            width: 148.5px;
+            height: 148.5px;
+            border-right: 1px solid #e2e2e2;
+            border-bottom: 1px solid #e2e2e2;
+            background-color: #fff;
+            a{
+                width: 148.5px;
+                height: 148.5px;
+                text-decoration: none;
+
+                img{
+                    width: 80px;
+                    height: 80px;
+                    margin-top: 20px;
+                    margin-left: 30px;
+                }
+                p{
+                    margin-top: 10px;
+                    margin-left: 20px;
+                    font-size: 14px;
+                    color: #212121;
+                    line-height: 18px;
+                    width: 99px;
+                    text-align: center;
+                }
+            }
+          
+        }
+        .cate1:hover{
+            cursor: pointer;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            background-color: #fff; 
+          
+
+        }
+    }
+}

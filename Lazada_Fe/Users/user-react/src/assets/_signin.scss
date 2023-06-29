@@ -1,0 +1,231 @@
+.content_signin{
+    width: 100%;
+    height: auto;
+    background-color: #eff0f5;
+    padding-bottom: 20px;
+
+    .header_sign{
+        display: flex;
+        width: 809px;
+        justify-content: space-between;
+        margin-left: 27%;
+        padding-top: 52px;
+        padding-bottom: 20px;
+        h3{
+            font-size: 20px;
+            color: #424242;
+            font-weight: 400;
+
+        }
+        p{
+            color: #757575;
+            line-height: 26px;
+            font-size: 12px;
+            // font-weight: 450;
+            a{
+                color: #1a9cb7;
+                text-decoration: none;
+            }
+        }
+    }
+    .section{
+        background-color: #fff;
+        width: 812px;
+        height: 455px;
+        padding: 25px 50px 50px 25px;
+        margin-left: 27%;
+        
+        display: flex;
+        gap: 40px;
+        // justify-content: space-between;
+
+        .section1{    
+         width: 368px;
+            .color-text{
+                font-size: 14px; 
+            }
+            span{
+                    font-size: 12px;}
+            input::placeholder{
+                font-size: 15px;
+            }
+            #errPhone,
+            #errPassWord{
+               color: red;
+             
+            }
+           
+            .sms{
+                height: 40px;
+                width: 382px;
+                a{
+                    img{
+                        width: 368px; 
+                    }
+                }
+            }
+            .da-son{
+                position: relative;
+               
+
+                i:hover{
+                    cursor: pointer;
+                }
+                #showPass{
+                    display: none;
+                    position: absolute;
+                    top: 10px;
+                     right: 30px;
+                }
+                #hidePass{
+                    position: absolute;
+                    top: 10px;
+                     right: 30px;
+                }
+            }
+            .text-date-gender{
+                .ml{
+                    margin-left: 220px;
+                }
+            }
+            .datetime{
+                display: flex;
+                gap: 10px;
+                .setform{
+                    width: 100px;
+                    height: 40px;
+                    border:-18.75px solid #757575;
+                    color: #683b3b;
+                    option{
+                        
+                    }
+                }
+                .setformday{
+                    width: 83px;
+                    height: 40px;
+                    border:-18.75px solid #757575;
+                    color: #683b3b;
+                    option{
+                        
+                    }
+                }
+                .setformgender{
+                    // margin-left: 15px
+                    width: 90px;
+                    height: 40px;
+                    border:-18.75px solid #757575;
+                    color: #683b3b;
+                    option{
+                        
+                    }
+                }
+            }
+            
+           
+        }
+        .section2{
+            width: 308px;
+            .color-text{
+                font-size: 14px; 
+            }
+            input::placeholder{
+                font-size: 15px;
+            }
+            #errName{
+                color: red;
+            }
+            .check{
+                input{
+                    width: 16px;
+                    height: 16px;
+                }
+                input:hover{
+                    border-radius: 2px;
+                    border: 1px solid #f57224;
+                    background-color: #fff8da;
+                    cursor: default;
+                }
+            }
+            span{
+                font-size: 12px;
+                font-weight: 400;
+                color: #757575;
+                // padding-bottom: 10px;
+            }
+            .btn-sign{
+                // border-style: solid;
+                background-color: #f57224;
+                height: 48px;
+                padding: 0 36px;
+                font-size: 14px;
+                line-height: 46px;
+                // border-width: 1px;
+                border: none;
+                margin: 12px 0;
+                color: white;
+                width: 308px;
+                border-radius: 2px;
+            }
+            .btn-sign:hover{
+                cursor: pointer;
+                transition: .3s ease-out;
+                background-color: #de631c;
+            }
+            .text-policy{
+                font-size: 12px;
+                color: #757575;
+                margin-bottom: 20px;
+                // font-weight: 400px;
+                span{
+                    a{
+                        color: #049cb9;
+                        text-decoration: none;
+                    }
+                }
+            }
+            .btn-signemail{
+                background-color: #feeade;
+                height: 48px;
+                padding: 0 36px;
+                font-size: 14px;
+                line-height: 46px;
+                border: none;
+                margin-top: -12px ;
+                color: #f57224;
+                width: 308px;
+                border-radius: 2px;
+                border: 1px solid  #f57224;
+            }
+            .btn-signemail:hover{
+                cursor: pointer;
+                transition: .3s ease-out;
+            
+            }
+            .fa-go{
+                margin-top: 17px;
+                .fa{
+                    background: #3b5998;
+                    width: 150px;
+                    padding-left:8px;
+                    padding-right: 8px;
+                    height: 40px;
+                    line-height: 40px;
+                    border-radius: 3px;
+                    border: none;
+                    span{
+                        // text-align: center;
+
+                        margin-left: 15px;
+                        color: #fff;
+                        font-size: 20px;
+                    }
+                }
+                .fa-back{
+                    background-color: #d34836;
+                }
+            }
+        }
+    }
+    
+    
+}

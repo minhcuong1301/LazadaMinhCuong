@@ -1,0 +1,204 @@
+.footer1{
+    border-top: 1px solid #e2e2e2;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    img{
+        width: 392px;
+        height: 100px;
+    }
+    
+}
+.footer2{
+    width: 1300px;
+    height: 255px;
+    margin-left: 12%;       
+    .footer2-left{
+        width: 25%;
+       h3{
+        font-size: 16px;
+        font-weight: 450;
+        line-height: 35px;
+        margin: 0;
+        color: #0f136d;
+       }
+       ul{
+        list-style: none;
+        margin-left: -33px;
+        
+        li{
+            font-size: 12px;
+           
+            line-height: 17px;
+            a{
+                text-decoration: none;
+                color: #0f136d;
+            }
+        }
+        li:hover a{
+            text-decoration:underline;
+        }
+       }
+       
+    }
+    .footer2-right{
+        margin-top: 30px;
+       width: 570px;
+    //    background-color: #f36d00;
+        .logofooter2{
+            display: flex;
+            gap: 15px;
+            .logoleft{
+                display: flex;
+                // width: 100px;
+                img{
+                    margin-left: -10px;
+                    width: 42px;
+                    height: 42px;
+                }
+
+                .textlgoleft1{
+                    margin-left: 15px;
+                    margin-top: -6px;
+                    span{
+                        color: #f36f36;
+                    }
+                    p{
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: #0f136d;
+                        // padding-top: 2px;
+                    }
+                }
+
+            }
+            .logoright{
+                img{
+                    
+                    width: 290px;
+                    height: 95px;
+                }
+            }
+        }
+        .textfooter2{
+            font-size: 12px;
+           
+            // line-height: 1px;
+            font-weight: 450;
+            color: #0f136d;
+            p{
+                // padding-top: -20px;
+                margin-bottom: 0px;
+              
+            }
+        }
+    }
+}
+.footer3{
+    height: 315px;
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    gap: 80px;
+    padding-left: 15%;
+    .footer3_1{
+        h3{
+            font-size: 16px;
+            color: #183544;
+            font-weight: 400;
+            line-height: 2.2em;
+            margin-bottom: 15px;
+            padding-top: 20px;
+        }
+        img{
+            width: 513px;
+        }
+    }
+    .footer3_2{
+        .gap{
+            display: flex;
+            gap: 140px;
+            h3{
+                font-size: 16px;
+                color: #183544;
+                font-weight: 400;
+                line-height: 2.2em;
+                margin-bottom: 15px;
+                padding-top: 20px;
+            }
+        }
+        img{
+            width: 518px;
+        }
+        
+    }
+
+}
+.footer4{
+    width: 100%;
+    height: 465px;
+    display: flex;
+    margin-top: 40px;
+    gap: 50px;
+    margin-left: 15%;
+    .footer4_1{
+        width: 263px;
+        h3{
+            font-size: 16px;
+            color: #606060;
+            font-weight: 400;
+            line-height: 20px;
+        }
+        p{
+            width: 216px;
+            font-size: 12px;
+            font-weight: 450;
+            color: #606060;
+        }
+    }
+    .footer4_2{
+        width: 263px;
+        h3{
+            font-size: 16px;
+            color: #606060;
+            font-weight: 400;
+            line-height: 20px;
+        }
+        h4{
+            font-size: 14px;
+            color: #606060;
+            font-weight: 400;
+            // line-height: 20px;
+        }
+        p{
+            margin-top: -8px;
+            width: 216px;
+            font-size: 12px;
+            font-weight: 450;
+            color: #606060;
+        }
+    }
+}
+.footer5{
+    width: 100%;
+    height: auto;
+    padding-top: 40px;
+    margin-bottom: 40px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-around;
+    .area{
+        p{
+            padding-left: 10px;
+        }
+        img{
+            width: 219px;
+        }
+    }
+    .end{
+        p{
+            font-size: 14px;
+    color: #606060;
+    font-weight: 400;
+        }
+    }
+}

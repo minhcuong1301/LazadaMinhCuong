@@ -4,9 +4,35 @@ import Footer from "../components/common/footer"
 import { Outlet } from "react-router-dom"
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-// import {useEffect} from "react";
+import {useEffect} from "react";
+import { useDispatch } from "react-redux";
+import {useCookies} from "react-cookie";
+import {useNavigate} from "react-router-dom";
+import { useSelector } from "react-redux";
+import profileApis from "../api/baseAdmin/profile";
+import { createAuthUser } from "../features/auth/authSlice";
 export default function Layout(){
-    
+    const auth = useSelector(state => state.auth);
+    const dispatch = useDispatch();
+    const [cookies, setCookie] = useCookies(['user_token']);
+    let navigate = useNavigate();
+
+    useEffect( () => {
+        if (!cookies.user_token) {
+            navigate('/login');
+        }
+        if (!auth.user) {
+            (
+                async () => {
+                    const profileResponse = await profileApis.show();
+
+                    if (profileResponse.success) {
+                        dispatch(createAuthUser(profileResponse.data))
+                    }
+                }
+            )()
+        }
+    }, [cookies]);
     return (
         <>
              <div id="main" className="sidebar-mini layout-fixed">
