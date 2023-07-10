@@ -58,7 +58,7 @@ export default function UserIndex() {
                 }
 
                 const usersResponse = await userApis.index(data, page);
-
+                console.log(usersResponse);
                 if (usersResponse.success) {
                     setUsers(usersResponse.data);
                 }
@@ -79,6 +79,7 @@ export default function UserIndex() {
                 if (deleteUser.success) {
                   
                     toast.success(() => <p>Xóa user thành công!</p>);
+                    console.log(getValues());
                     getUsers(getValues(), currentPage.current)
                 }
             }
@@ -86,6 +87,7 @@ export default function UserIndex() {
     };
 
     const filter = (data) => {
+  
         getUsers(data)
     };
 
@@ -194,7 +196,7 @@ export default function UserIndex() {
                                         <tbody>
                                         {
                                             users.docs && users.docs.map( (user, index) => {
-                                                console.log(user);
+                                              
                                                 return (
                                                     <tr key={index}>
                                                         <td>

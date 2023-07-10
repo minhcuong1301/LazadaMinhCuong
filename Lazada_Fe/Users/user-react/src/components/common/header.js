@@ -1,14 +1,20 @@
 import { AiFillCloseCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { useState,useEffect } from "react";
+
 const Header=()=>{
+   const [showBanner,setShowBanner]=useState(true)
+
     return(
         <>
             <div className="wrap-contain">
-            
-                <div className="banner text-center">
-                    <img src="https://icms-image.slatic.net/images/ims-web/ce72daf1-739c-4718-a749-dad336fc233b.png" alt=""/>
-                    <AiFillCloseCircle id="off"></AiFillCloseCircle>
-                </div>
+                {
+                    showBanner && 
+                    <div className="banner text-center " >
+                        <img id="img" src="https://icms-image.slatic.net/images/ims-web/ce72daf1-739c-4718-a749-dad336fc233b.png" alt=""/>
+                        <AiFillCloseCircle  id="off" onClick={()=>setShowBanner(!showBanner)}></AiFillCloseCircle>
+                    </div>
+                }
                 <div className="text-center navv">
                     <a href="" style={{visibility:'hidden'}}>Inner feedback</a>
                     <a href=""  >TIẾT KIỆM HƠN VỚI ỨNG DỤNG</a>

@@ -8,8 +8,8 @@ export const authSlice = createSlice({
     },
     reducers: {
         createAuthUser: (state, action) => {
-            // console.log(state);proxy
-            // console.log(action);type,payload(data action gửi đi:thông tin của auth)
+            console.log(state);     //proxy
+            console.log(action);    //type,payload(data action gửi đi:thông tin của auth)
             const user = action.payload;
             let avatar = user.avatar;
           
@@ -24,7 +24,7 @@ export const authSlice = createSlice({
             } catch (e) {
                 avatar = user.avatar;
             }
-            // thay thế state cũ :initialstate(thêm avatar)
+           
             return Object.assign({}, state, {
                 user: {...user, avatarUrl: avatar},
             });

@@ -13,14 +13,15 @@ export default function MainSidebar() {
     
     useEffect(()=>{
         
-        document.querySelectorAll(".main-sidebar .nav-sidebar >.nav-item").forEach((e)=>{
-            e.querySelector('.nav-link').addEventListener('click', function (item) {
-                if (e.classList.contains('menu-is-opening') && e.classList.contains('menu-open')) {
-                    e.classList.remove('menu-is-opening');
-                    e.classList.remove('menu-open');
+        document.querySelectorAll(".main-sidebar .nav-sidebar >.nav-item").forEach((item)=>{
+            item.querySelector('.nav-link').addEventListener('click', function (e) {
+                e.preventDefault();
+                if (item.classList.contains('menu-is-opening') && item.classList.contains('menu-open')) {
+                    item.classList.remove('menu-is-opening');
+                    item.classList.remove('menu-open');
                 } else {
-                    e.classList.add('menu-is-opening');
-                    e.classList.add('menu-open');
+                    item.classList.add('menu-is-opening');
+                    item.classList.add('menu-open');
                 }
             })
         })
